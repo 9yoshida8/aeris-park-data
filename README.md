@@ -24,7 +24,7 @@
 
 ## アクセス解析について
 このページは [GoatCounter](https://www.goatcounter.com/)（オープンソース・Cookie不使用・
-個人を特定しない計測）を使用しています。ダッシュボード: https://aeris-ota.goatcounter.com
+個人を特定しない計測）を使用しています。ダッシュボード: https://9yoshida8.goatcounter.com
 
 ## 連絡先
 ご意見・感想: 9yoshida8@gmail.com（吉田）
