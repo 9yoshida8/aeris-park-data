@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>需要は消えていない。料金が止めた。— エアリススケートパーク太田 再活性化提言（公開版）</title>
+<title>需要は消えていない。— エアリススケートパーク太田 市民提言（公開版）</title>
 <link rel="canonical" href="https://9yoshida8.github.io/aeris-park-data/">
-<meta name="description" content="太田市の公文書開示データ（日次利用実績2024-2026）を市民が分析。有料化で利用者は42%に、市内利用者0人の日は1%→22%へ。市内無料・早朝開放・月例ボウルイベント・スポンサー財源の四施策を提案します。">
+<meta name="description" content="太田市の公文書開示データから：市内利用者が0人の日は、無料期間は179日中2日（1%）。有料化後は年82日（22%）に。誰も来ない日も年46日。市民無料期間の延長を提案します。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="需要は消えていない。料金が、止めた。— エアリススケートパーク太田 再活性化提言">
-<meta property="og:description" content="開示データ分析：市内利用者0人の日が無料期1%→有料化後22%。市内無料の費用は年60万円。データで示す四つの提案。">
+<meta property="og:title" content="需要は消えていない。— エアリススケートパーク太田 市民提言（公開版）">
+<meta property="og:description" content="太田市の公文書開示データから：市内利用者が0人の日は、無料期間は179日中2日（1%）。有料化後は年82日（22%）に。誰も来ない日も年46日。市民無料期間の延長を提案します。">
 <meta property="og:url" content="https://9yoshida8.github.io/aeris-park-data/">
 <meta property="og:image" content="https://9yoshida8.github.io/aeris-park-data/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,51 +16,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --asphalt:#1B1D21;      /* 路面の黒 */
-  --concrete:#EDEBE6;     /* コンクリート紙 */
-  --concrete-2:#E0DDD5;
-  --line:#C9C5BB;
-  --caution:#F5C400;      /* 検査標識の黄 = ゼロの日 */
-  --ink:#26282C;
-  --mute:#6E6A61;
-  --free:#3E7C59;         /* 無料期 = 緑 */
-  --paid:#B3442E;         /* 有料期 = さび赤 */
-}
+:root{--asphalt:#1B1D21;--concrete:#EDEBE6;--concrete-2:#E0DDD5;--line:#C9C5BB;--caution:#F5C400;--ink:#26282C;--mute:#6E6A61;--free:#3E7C59;--paid:#B3442E}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--concrete);
-  color:var(--ink);
-  font-family:"IBM Plex Sans JP",sans-serif;
-  font-size:15px; line-height:1.75;
-  -webkit-font-smoothing:antialiased;
-}
+body{background:var(--concrete);color:var(--ink);font-family:"IBM Plex Sans JP",sans-serif;font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased}
 .wrap{max-width:880px;margin:0 auto;padding:0 24px}
 .mono{font-family:"IBM Plex Mono",monospace}
-.disp{font-family:"Shippori Mincho B1",serif}
-
-/* ===== header ===== */
 header{border-bottom:3px solid var(--asphalt);padding:28px 0 22px}
 .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
 h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:clamp(26px,4.6vw,40px);line-height:1.35;margin-top:14px}
-h1 .u{background:linear-gradient(transparent 62%, var(--caution) 62%)}
+h1 .u{background:linear-gradient(transparent 62%,var(--caution) 62%)}
 .lede{margin-top:12px;color:var(--mute);max-width:640px}
-
-/* ===== thesis numbers ===== */
-.thesis{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin:36px 0 8px;border:2px solid var(--asphalt);background:#fff}
+.thesis{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;margin:36px 0 8px;border:2px solid var(--asphalt);background:#fff}
 .thesis>div{padding:22px 20px}
 .th-free{border-right:2px solid var(--asphalt)}
 .th-arrow{display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--asphalt);color:var(--concrete);padding:0 14px}
 .th-label{font-size:12px;letter-spacing:.12em;font-weight:700}
-.th-free .th-label{color:var(--free)} .th-paid .th-label{color:var(--paid)}
+.th-free .th-label{color:var(--free)}.th-paid .th-label{color:var(--paid)}
 .big{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:clamp(44px,9vw,76px);line-height:1.05;margin:4px 0 2px}
-.th-free .big{color:var(--free)} .th-paid .big{color:var(--paid)}
+.th-free .big{color:var(--free)}.th-paid .big{color:var(--paid)}
 .th-sub{font-size:13px;color:var(--mute)}
-.th-cap{ text-align:center;font-size:12.5px;color:var(--mute);margin-bottom:34px;margin-top:8px}
-
-/* ===== calendar strips (signature) ===== */
-section{margin:0 0 46px}
+.th-cap{text-align:center;font-size:12.5px;color:var(--mute);margin:8px 0 34px}
+section{margin:0 0 44px}
 .sec-h{display:flex;align-items:baseline;gap:12px;border-top:2px solid var(--asphalt);padding-top:14px;margin-bottom:14px}
 .sec-no{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;background:var(--asphalt);color:var(--concrete);padding:2px 8px}
 .sec-h h2{font-size:19px;font-weight:700}
@@ -68,135 +44,64 @@ section{margin:0 0 46px}
 .cal-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:10px}
 .cal-title{font-weight:700;font-size:14.5px}
 .cal-title .tag{display:inline-block;font-size:11px;letter-spacing:.1em;color:#fff;padding:1px 8px;margin-right:8px;vertical-align:2px}
-.tag.free{background:var(--free)} .tag.paid{background:var(--paid)}
+.tag.free{background:var(--free)}.tag.paid{background:var(--paid)}
 .cal-stat{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--mute)}
-.cal-stat b{color:var(--ink);font-weight:600}
+.cal-stat b{color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(46,1fr);gap:2px}
 .cell{aspect-ratio:1/1;background:var(--concrete-2);border-radius:1px}
 .cell.z{background:var(--caution);outline:1px solid #C9A100}
+.cell.r{background:var(--paid);outline:1px solid #8F3423}
 .legend{display:flex;gap:18px;font-size:12px;color:var(--mute);margin-top:10px;flex-wrap:wrap}
 .sw{display:inline-block;width:11px;height:11px;vertical-align:-1px;margin-right:5px;border-radius:1px}
 .sw.on{background:var(--caution);outline:1px solid #C9A100}
 .sw.off{background:var(--concrete-2)}
-.punch{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:clamp(17px,2.6vw,21px);line-height:1.8;margin-top:18px;padding-left:16px;border-left:5px solid var(--caution)}
-
-/* ===== bars ===== */
-.bars{background:#fff;border:1px solid var(--line);padding:20px 18px}
-.bar-row{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;margin-bottom:9px}
-.bar-lab{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--mute);text-align:right}
-.track{position:relative;height:30px}
-.bar{position:absolute;top:0;height:13px;display:flex;align-items:center}
-.bar.f{background:var(--free)} .bar.p{background:var(--paid);top:16px}
-.bar .v{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink);margin-left:6px;transform:translateX(100%);position:absolute;right:-4px}
-.bar span.inv{position:absolute;left:calc(100% + 6px);font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mute);white-space:nowrap}
+.sw.rd{background:var(--paid);outline:1px solid #8F3423}
+.punch{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:clamp(17px,2.6vw,21px);line-height:1.85;margin-top:18px;padding-left:16px;border-left:5px solid var(--caution)}
+.box{background:#fff;border:1px solid var(--line);padding:18px;font-size:14px;line-height:1.9}
+.box+.box{margin-top:12px}
 .note{font-size:12.5px;color:var(--mute);margin-top:10px}
-
-/* ===== stat cards ===== */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--asphalt);padding:16px 16px 14px}
-.card.warn{border-top-color:var(--caution)}
-.card .k{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:clamp(22px,3.4vw,30px);line-height:1.15}
-.card .k small{font-size:.55em;font-weight:500}
-.card .t{font-size:12.5px;font-weight:700;margin-top:4px}
-.card .d{font-size:12px;color:var(--mute);margin-top:4px;line-height:1.65}
-
-/* ===== revenue split ===== */
-.split{background:#fff;border:1px solid var(--line);padding:20px 18px}
-.split-bar{display:flex;height:44px;border:1px solid var(--asphalt);overflow:hidden}
-.split-bar .so{background:var(--asphalt);color:var(--concrete);flex:0 0 80.8%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;gap:8px}
-.split-bar .si{background:var(--caution);color:var(--asphalt);flex:1;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;text-align:center;line-height:1.3}
-.split .note b{color:var(--ink)}
-
-/* ===== heat ===== */
-.heat{background:#fff;border:1px solid var(--line);padding:20px 18px}
-.h-row{display:grid;grid-template-columns:130px 1fr 74px;gap:10px;align-items:center;margin-bottom:10px}
-.h-lab{font-size:13px;font-weight:700}
-.h-lab small{display:block;font-weight:400;color:var(--mute);font-size:11px}
-.h-track{height:16px;background:var(--concrete-2)}
-.h-fill{height:100%;display:flex;align-items:center}
-.h-pct{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;text-align:right}
-
-/* ===== closing ===== */
-.close{border:2px solid var(--asphalt);background:var(--asphalt);color:var(--concrete);padding:26px 24px;margin-bottom:26px}
-.close .disp{font-size:clamp(19px,3vw,24px);line-height:1.9}
-.close .disp em{font-style:normal;background:linear-gradient(transparent 60%, rgba(245,196,0,.45) 60%)}
-.src{font-size:11.5px;color:var(--mute);line-height:1.8;padding:18px 0 40px;border-top:1px solid var(--line)}
-
-@media (max-width:640px){
-  .thesis{grid-template-columns:1fr}
-  .th-free{border-right:none;border-bottom:2px solid var(--asphalt)}
-  .th-arrow{padding:6px 0;transform:rotate(90deg) }
-  .grid{grid-template-columns:repeat(23,1fr)}
-  .cards{grid-template-columns:1fr}
-  .h-row{grid-template-columns:104px 1fr 62px}
-}
-
-/* ===== v2 additions ===== */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.duo .box{background:#fff;border:1px solid var(--line);padding:16px}
-.duo .box h4{font-size:13px;font-weight:700;margin-bottom:10px}
-.vs{display:flex;align-items:flex-end;gap:14px;height:150px;padding:4px 6px 0}
-.vs .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}
-.vs .stick{width:70%;max-width:84px}
-.vs .num{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px}
-.vs .lab{font-size:11px;color:var(--mute);text-align:center;line-height:1.4}
-.ev{background:#fff;border:1px solid var(--line);padding:20px 18px}
-.ev-row{display:grid;grid-template-columns:150px 1fr 56px;gap:10px;align-items:center;margin-bottom:8px}
-.ev-lab{font-size:12.5px}
-.ev-lab small{color:var(--mute);display:block;font-size:10.5px}
-.ev-track{height:14px;background:var(--concrete-2);position:relative}
-.ev-fill{height:100%;background:var(--asphalt)}
-.ev-fill.grow{background:var(--free)}
-.ev-num{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;text-align:right}
-.baseline{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--paid)}
 .tl{background:#fff;border:1px solid var(--line);padding:18px}
-.tl-row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.tl-row{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
 .tl-row:last-child{border-bottom:none}
 .tl-d{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--mute);font-weight:600}
 .tl-row.hot .tl-d{color:var(--paid)}
 .props{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .prop{background:#fff;border:1px solid var(--line);border-left:5px solid var(--asphalt);padding:16px}
-.prop.p1{border-left-color:var(--caution)} .prop.p2{border-left-color:var(--free)}
-.prop.p3{border-left-color:var(--paid)} .prop.p4{border-left-color:#5A7DA0}
+.prop.p1{border-left-color:var(--caution)}.prop.p2{border-left-color:var(--free)}
+.prop.p3{border-left-color:var(--paid)}.prop.p4{border-left-color:#5A7DA0}
 .prop .no{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:12px;color:var(--mute)}
 .prop h3{font-size:16px;font-weight:700;margin:2px 0 8px}
-.prop p{font-size:13px;color:#3d3f44;line-height:1.75}
+.prop p{font-size:13px;color:#3d3f44;line-height:1.8}
 .prop p b{color:var(--ink)}
 .steps{background:#fff;border:1px solid var(--line);padding:16px 18px;margin-top:14px;font-size:13.5px}
+.qa{background:#fff;border:1px solid var(--line);border-left:4px solid var(--paid);padding:14px 16px;margin-bottom:10px}
+.qa .qq{font-weight:700;font-size:14px;color:var(--paid);margin-bottom:6px}
+.qa .aa{font-size:13.5px;line-height:1.9}
+.qa .aa b{color:var(--ink)}
 .fb{border:2px dashed var(--asphalt);background:#fff;padding:22px;margin-bottom:26px}
 .fb h3{font-size:17px;font-weight:700;margin-bottom:8px}
 .fb p{font-size:13.5px}
 .fb .mail{font-family:"IBM Plex Mono",monospace;font-weight:600;background:var(--caution);padding:2px 8px}
 .fb-links{margin-top:14px;line-height:2.4}
 .fb-btn{display:inline-block;background:var(--caution);color:var(--asphalt);font-weight:700;padding:10px 18px;text-decoration:none;border:2px solid var(--asphalt);margin-right:14px;margin-bottom:6px}
-.fb-btn:hover{background:var(--asphalt);color:var(--caution)}
 .fb-sns{margin-right:16px;font-size:13.5px;white-space:nowrap}
 .fb-sns a{color:var(--ink);font-weight:700}
-@media (max-width:640px){.duo{grid-template-columns:1fr}.props{grid-template-columns:1fr}.ev-row{grid-template-columns:112px 1fr 48px}}
-
-@media print{
-  body{background:#fff}
-  .close{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .cell,.tag,.bar,.split-bar,.h-fill,.sw{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-}
+.close{border:2px solid var(--asphalt);background:var(--asphalt);color:var(--concrete);padding:26px 24px;margin-bottom:26px}
+.close .disp{font-family:"Shippori Mincho B1",serif;font-size:clamp(19px,3vw,24px);line-height:1.95}
+.close .disp em{font-style:normal;background:linear-gradient(transparent 60%,rgba(245,196,0,.45) 60%)}
+.src{font-size:11.5px;color:var(--mute);line-height:1.8;padding:18px 0 40px;border-top:1px solid var(--line)}
+@media (max-width:640px){.thesis{grid-template-columns:1fr}.th-free{border-right:none;border-bottom:2px solid var(--asphalt)}.th-arrow{padding:6px 0}.grid{grid-template-columns:repeat(23,1fr)}.props{grid-template-columns:1fr}}
+@media print{body{background:#fff}.close,.cell,.tag,.sw{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
-    <div class="eyebrow">
-      <span>エアリススケートパーク太田｜開示データ分析と再活性化提言（公開版）</span>
-      <span class="mono">出典：太田市開示 日次集計表（2024.6–2026.6）</span>
-    </div>
-    <h1>需要は消えていない。<br><span class="u">料金が、止めた。</span></h1>
-    <p class="lede">市が開示した日次データが示すのは「地元に需要がない」ではありません。無料の間、市内利用者がゼロだった日は179日中わずか2日——毎日、誰かしら地元の子が来ていました。有料化後、その日は年82日に増えます。</p>
-  </div>
-</header>
-
+<header><div class="wrap">
+  <div class="eyebrow"><span>エアリススケートパーク太田｜開示データと市民提言（公開版）</span><span class="mono">出典：太田市 公文書開示（2026年6月）</span></div>
+  <h1>需要は消えていない。<br><span class="u">止まっているだけだ。</span></h1>
+  <p class="lede">この提案は、地元の子どもたち——設置趣旨にいう「ちょっとやってみようかな、という人」——が、また当たり前にパークへ入れるようにするためのものです。求めるのは新しい特権ではなく、市が半年間実証した無料期間への復帰。登録も、市外の料金も、いまの仕組みのまま。期限を付け、結果はデータで判定する。その理由を、市の開示データでお見せします。</p>
+</div></header>
 <main class="wrap">
 
-  <!-- thesis -->
   <div class="thesis">
     <div class="th-free">
       <div class="th-label">無料期間（2024）市内0人の日</div>
@@ -207,14 +112,22 @@ section{margin:0 0 46px}
     <div class="th-paid">
       <div class="th-label">有料化後（令和7年度）市内0人の日</div>
       <div class="big">22<small style="font-size:.45em">%</small></div>
-      <div class="th-sub">365日中 <b class="mono">82日</b>（約20倍）</div>
+      <div class="th-sub">365日中 <b class="mono">82日</b></div>
     </div>
   </div>
   <p class="th-cap">「市内0人の日」＝その日、地元の利用者がひとりも来なかった日（休場日を含む）</p>
-
-  <!-- 01 calendar -->
   <section>
-    <div class="sec-h"><span class="sec-no">01</span><h2>1年をならべて見る — 黄色は「地元の子がひとりもいない日」</h2></div>
+    <div class="sec-h"><span class="sec-no">01</span><h2>この提案の、四つの約束</h2></div>
+    <div class="props">
+      <div class="prop p1"><div class="no">PROMISE 01</div><h3>戻すだけ</h3><p>新しい特権を求めるのではありません。市が半年間、実際にやって実証した<b>無料期間への復帰</b>です。</p></div>
+      <div class="prop p2"><div class="no">PROMISE 02</div><h3>誰の負担も増やさない</h3><p>登録・身分証・入退場記録の仕組みはそのまま。市外の料金もそのまま。<b>変わるのは、市民の入口だけ</b>。</p></div>
+      <div class="prop p3"><div class="no">PROMISE 03</div><h3>期限とデータで決める</h3><p>まず1年の期限付き。良ければ続け、駄目なら戻す——<b>判定は感情ではなく、いまのシステムが毎日残す記録で</b>。</p></div>
+      <div class="prop p4"><div class="no">PROMISE 04</div><h3>「空いていて良い」も守る</h3><p>目指すのは満員ではなく、<b>「行けば誰かはいる」</b>。万一の混雑には、いまの入場システムがそのまま使えます。</p></div>
+    </div>
+  </section>
+
+
+  <section><div class="sec-h"><span class="sec-no">02</span><h2>1年をならべて見る — 黄色は「地元の子がひとりもいない日」</h2></div>
 
     <div class="cal-block">
       <div class="cal-head">
@@ -223,7 +136,6 @@ section{margin:0 0 46px}
       </div>
       <div class="grid" id="calFree"></div>
     </div>
-
     <div class="cal-block">
       <div class="cal-head">
         <div class="cal-title"><span class="tag paid">有料</span>令和7年度：2025年4月1日〜2026年3月31日（365日）</div>
@@ -236,189 +148,58 @@ section{margin:0 0 46px}
       </div>
     </div>
 
-    <p class="punch">無料なら、地元は毎日来ていた。<br>この2日と82日の差が、「需要不在」という説明を数字で否定します。</p>
+    <p class="punch">無料なら、地元は毎日来ていた。<br>この2日と82日の差が、「需要不在」という説明を退けます。</p>
   </section>
+  <section><div class="sec-h"><span class="sec-no">03</span><h2>「空いていて良い」と「誰もいない」は違う — 無人の46日</h2></div>
 
-  <!-- 02 monthly -->
-  <section>
-    <div class="sec-h"><span class="sec-no">02</span><h2>同じ月で比べる — 有料化後、利用者はほぼ半減</h2></div>
-    <div class="bars">
-      <div class="bar-row"><div class="bar-lab">7月</div><div class="track"><div class="bar f" style="width:51.2%"><span class="inv">786</span></div><div class="bar p" style="width:23.2%"><span class="inv">357（45%）</span></div></div></div>
-      <div class="bar-row"><div class="bar-lab">8月</div><div class="track"><div class="bar f" style="width:45.1%"><span class="inv">693</span></div><div class="bar p" style="width:26.0%"><span class="inv">400（58%）</span></div></div></div>
-      <div class="bar-row"><div class="bar-lab">9月</div><div class="track"><div class="bar f" style="width:71.9%"><span class="inv">1,105</span></div><div class="bar p" style="width:27.6%"><span class="inv">424（38%）</span></div></div></div>
-      <div class="bar-row"><div class="bar-lab">10月</div><div class="track"><div class="bar f" style="width:62.2%"><span class="inv">956</span></div><div class="bar p" style="width:28.2%"><span class="inv">434（45%）</span></div></div></div>
-      <div class="bar-row"><div class="bar-lab">11月</div><div class="track"><div class="bar f" style="width:100%"><span class="inv">1,536</span></div><div class="bar p" style="width:31.6%"><span class="inv">486（32%）</span></div></div></div>
-      <div class="bar-row"><div class="bar-lab">12月</div><div class="track"><div class="bar f" style="width:48.8%"><span class="inv">749</span></div><div class="bar p" style="width:22.1%"><span class="inv">339（45%）</span></div></div></div>
-      <div class="legend" style="margin-top:6px">
-        <span><span class="sw" style="background:var(--free)"></span>無料期 2024（月間利用者数）</span>
-        <span><span class="sw" style="background:var(--paid)"></span>有料 2025（同月・カッコ内は対無料期比）</span>
-      </div>
-      <p class="note">下期（7〜12月）合計：無料 5,825人 → 有料 2,440人（42%）。開業1年目の注目度も含まれるため全てが料金の影響ではないが、次の「市内だけ深く減った」事実と合わせると、料金の抑制効果は明確。</p>
+    <div class="box">
+      <p>「有料だから空いていて快適」という利用者の声は、実際にあります。その価値は本物です——本提言は、混雑したパークを目指すものではありません。無料の期間でも、"快適な空き"は保たれていました。</p>
+      <p style="margin-top:10px">ただ、いまはその遥か下にあります。<b>利用者が誰もいない日が、年46日（営業日の13%＝約1.5か月分）</b>。空きの快適さは、誰かがそこにいて初めて成立します。46日は「空いている」ではなく「無人」であり、その間も予約システムと電子ゲートは動き続けています。</p>
     </div>
+    <p class="punch">目指すのは満員ではない。「いつ行っても誰かがいて、待たずに滑れる」——<br>無料の期間が、ちょうどその水準だった。</p>
+
   </section>
+  <section><div class="sec-h"><span class="sec-no">04</span><h2>公平のために — 減少は料金だけのせいではない</h2></div>
 
-  <!-- 03 who disappeared -->
-  <section>
-    <div class="sec-h"><span class="sec-no">03</span><h2>誰が消えたのか — 減ったのは、地元</h2></div>
-    <div class="cards">
-      <div class="card warn">
-        <div class="k">9.6 → 2.9<small>人/日</small></div>
-        <div class="t">市内利用者の1日平均</div>
-        <div class="d">無料期9.6人 → 有料後2.9人。<b>30%に減少（▲70%）</b>。市外の1日平均も20.1→8.5人（42%）に減少——全員が減り、市内が最も深く消えた。</div>
-      </div>
-      <div class="card warn">
-        <div class="k">▲2,400<small>人/年</small></div>
-        <div class="t">料金で失われた市内利用（推計）</div>
-        <div class="d">無料期水準の年換算 約3,495人 − 現行1,069人。600円が消したのは売上ではなく、地元の滑走機会。</div>
-      </div>
-      <div class="card">
-        <div class="k">74.3<small>%</small></div>
-        <div class="t">令和7年度の市外比率</div>
-        <div class="d">利用者の4人に3人が市外。「市民のための施設」が、実態として遠征者のパークに固定化している。</div>
-      </div>
+    <div class="box">
+      <p>公平のために——利用減少の要因は料金だけではありません。<b>有料化と同じ月（2025年1月）、近隣に無料・ナイター照明付きの本格ストリートパーク（みどり市）が開業</b>しています。減少は料金と競合の複合です。それでも、<b>市内利用者0人の日だけが際立って増えた</b>という事実は、地元の子どもたちにとって料金が壁になったことを示しています。</p>
     </div>
+
   </section>
+  <section><div class="sec-h"><span class="sec-no">05</span><h2>提案 — 現行制度の運用で始められる四本柱</h2></div>
 
-  <!-- 04 cost of fixing -->
-  <section>
-    <div class="sec-h"><span class="sec-no">04</span><h2>市内無料の値段 — 失う歳入は年60万円だけ</h2></div>
-    <div class="split">
-      <div class="split-bar">
-        <div class="so">市外利用者の支払分 ¥2,518,650（80.8%）</div>
-        <div class="si">市内分<br>¥596,940</div>
-      </div>
-      <p class="note" style="margin-top:12px">令和7年度・利用料収入の内訳（日次データ×料金表から逆算。開示歳入 ¥3,278,040 と整合）。<br>
-      <b>収入の8割は市外の遠征利用者が支えている。市内料金を無料化しても、失うのは年約60万円——収入の2割弱。</b>その60万円と引き換えに現状失われているのが、上の「年2,400人の市内利用」と「82日の市内ゼロ日」。</p>
-    </div>
-    <div class="cards" style="margin-top:14px">
-      <div class="card">
-        <div class="k">¥6,150<small>/日</small></div>
-        <div class="t">1日あたり利用料収入（中央値）</div>
-        <div class="d">この日商のために、予約システム・電子ゲート・決済・総合受付の体制が毎日稼働している。</div>
-      </div>
-      <div class="card">
-        <div class="k">56<small>%</small></div>
-        <div class="t">1日10人以下だった日の割合</div>
-        <div class="d">3,000㎡・北関東最大級で、1年の過半が一桁〜10人。利用者0人の日も46日（13%）。</div>
-      </div>
-      <div class="card">
-        <div class="k">600<small>円の非対称</small></div>
-        <div class="t">料金は市外に効かず、市内にだけ効いた</div>
-        <div class="d">1日平均の残存率は市外42%・市内30%。双方が減り、市内がより深く消えた結果、市外比率は67.7%→74.3%へ上昇——地元の空洞化。</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 heat -->
-  <section>
-    <div class="sec-h"><span class="sec-no">05</span><h2>気温との関係 — 35℃で崖。閉め出しているのは暑さと開館時間</h2></div>
-    <div class="heat">
-      <div class="h-row"><div class="h-lab">30℃未満<small>基準（n=33日）</small></div><div class="h-track"><div class="h-fill" style="width:100%;background:var(--asphalt)"></div></div><div class="h-pct">16.5人</div></div>
-      <div class="h-row"><div class="h-lab">30–35℃<small>真夏日（n=33日）</small></div><div class="h-track"><div class="h-fill" style="width:101%;background:var(--asphalt)"></div></div><div class="h-pct">16.6人</div></div>
-      <div class="h-row"><div class="h-lab">35–38℃<small>猛暑日（n=25日）</small></div><div class="h-track"><div class="h-fill" style="width:70%;background:var(--paid)"></div></div><div class="h-pct">11.6人</div></div>
-      <div class="h-row"><div class="h-lab">38℃以上<small>酷暑（n=10日）</small></div><div class="h-track"><div class="h-fill" style="width:58%;background:var(--paid)"></div></div><div class="h-pct">9.5人</div></div>
-      <p class="note">有料期・夏期（6–9月）・雨天除外の平均利用者数。34℃までは客足は落ちない（滑りたい需要は消えない）。<b>35℃を境に3〜4割減る</b>——日中の滑走が危険になる日にだけ、物理的に閉め出されている。夕方は照明で21時まで開いている一方、涼しい早朝は9時開館で切り捨てられている。無人ゲートゆえ早朝開放の追加人件費はほぼゼロ。残る検証は「猛暑日の朝、開館直後に駆け込みの山があるか」——発券時刻データ（2次開示請求）で確定できる。</p>
-    </div>
-  </section>
-
-
-  <!-- 06 network -->
-  <section>
-    <div class="sec-h"><span class="sec-no">06</span><h2>市内は、市外を呼ぶ — 地元の賑わいが遠征客の来場と連動</h2></div>
-    <div class="duo">
-      <div class="box">
-        <h4>晴れた休日の「市外」平均利用者数</h4>
-        <div class="vs">
-          <div class="col"><div class="num">2.5人</div><div class="stick" style="height:14%;background:var(--concrete-2);outline:1px solid var(--line)"></div><div class="lab">市内0人の日<br>(n=15)</div></div>
-          <div class="col"><div class="num">17.5人</div><div class="stick" style="height:100%;background:var(--asphalt)"></div><div class="lab">市内3人以上の日<br>(n=94)</div></div>
-        </div>
-      </div>
-      <div class="box">
-        <h4>晴れた平日の「市外」平均利用者数</h4>
-        <div class="vs">
-          <div class="col"><div class="num">3.1人</div><div class="stick" style="height:36%;background:var(--concrete-2);outline:1px solid var(--line)"></div><div class="lab">市内0人の日<br>(n=52)</div></div>
-          <div class="col"><div class="num">8.7人</div><div class="stick" style="height:100%;background:var(--asphalt)"></div><div class="lab">市内3人以上の日<br>(n=138)</div></div>
-        </div>
-      </div>
-    </div>
-    <p class="note" style="margin-top:10px">有料期・天候（晴/小雨）と曜日を揃えた層別比較。層内相関 r≒0.33〜0.36。相関であり因果の証明ではない（共通要因の影響がありうる）が、「地元がいる日ほど遠征客も多い」という連動は一貫している。</p>
-    <p class="punch">遠征者が一番恐れるのは、往復2時間かけて誰もいないパークに着くこと。<br>市内無料は福祉支出ではなく、市外分・年252万円の売上を守る<b>販売促進投資</b>。</p>
-  </section>
-
-  <!-- 07 events -->
-  <section>
-    <div class="sec-h"><span class="sec-no">07</span><h2>集まる条件は実証済み — 減免イベントの日だけ、人が戻る</h2></div>
-    <div class="ev">
-      <div class="ev-row"><div class="ev-lab">パークで滑ろう<small>R7・朝</small></div><div class="ev-track"><div class="ev-fill" style="width:62%"></div><div class="baseline" style="left:16%"></div></div><div class="ev-num">50人</div></div>
-      <div class="ev-row"><div class="ev-lab">パークで滑ろう<small>R7・夜18-21時</small></div><div class="ev-track"><div class="ev-fill" style="width:86%"></div><div class="baseline" style="left:16%"></div></div><div class="ev-num">70人</div></div>
-      <div class="ev-row"><div class="ev-lab">スケボースクール<small>ムラサキスポーツ太田店</small></div><div class="ev-track"><div class="ev-fill" style="width:62%"></div><div class="baseline" style="left:16%"></div></div><div class="ev-num">50人</div></div>
-      <div class="ev-row"><div class="ev-lab">体験教室<small>おおたスポーツ学校</small></div><div class="ev-track"><div class="ev-fill" style="width:43%"></div><div class="baseline" style="left:16%"></div></div><div class="ev-num">35人</div></div>
-      <div class="ev-row"><div class="ev-lab">パークで滑ろう<small>R8年度・増勢</small></div><div class="ev-track"><div class="ev-fill grow" style="width:100%"></div><div class="baseline" style="left:16%"></div></div><div class="ev-num">81人</div></div>
-      <p class="note">横棒＝各イベントの参加人数（市の開示「イベント実績一覧表」より）。<span style="color:var(--paid);font-weight:700">赤線＝平常日の平均13人/日</span>。料金の壁を外し（減免）、誰かがセッションを主催した日は、平常日の<b>4〜6倍</b>が集まる。R8年度は81人・77人と伸びている——需要は消えていない。主催してきたのは太田市ストリートスポーツ協会：この提案は、その実績を月例化・ボウル特化で制度化するもの。</p>
-    </div>
-  </section>
-
-  <!-- 08 environment -->
-  <section>
-    <div class="sec-h"><span class="sec-no">08</span><h2>環境の変化 — 価格とストリートの土俵では、もう競えない</h2></div>
-    <div class="tl">
-      <div class="tl-row"><div class="tl-d">2024.06</div><div>エアリス開業（無料キャンペーン）。半年で延べ5,308人、市内0人の日はわずか2日。</div></div>
-      <div class="tl-row hot"><div class="tl-d">2025.01</div><div><b>エアリス有料化。</b>同じ月、車で約30分の隣接地に<b>「ボートレース桐生・みどモスストリートパーク」開業</b>——無料・ナイター照明・本格ストリート。報道は「常に利用者がいる」。</div></div>
-      <div class="tl-row"><div class="tl-d">2025年度</div><div>エアリスの利用は無料期の42%に。朝は照明のない無料パーク（大泉町等）が日の出から実質開放され、朝需要の受け皿に。市内にも強戸行政センターの無料開放エリア。</div></div>
-      <div class="tl-row"><div class="tl-d">2026.06</div><div>福井など「3,000㎡・無料」を掲げる新設パークが各地で増加中。無料の包囲網は今後も広がる。</div></div>
-    </div>
-    <p class="punch">残された独占資産は<b>大型ボウル</b>だけ。棲み分けを恐れず宣言する——<br>「ストリートはみどモス、<b>ボウルは太田</b>」。この窓が開いているのは、あと1〜2シーズン。</p>
-  </section>
-
-  <!-- 09 proposal -->
-  <section>
-    <div class="sec-h"><span class="sec-no">09</span><h2>提案 — 現行制度の運用で始められる四本柱</h2></div>
     <div class="props">
-      <div class="prop p1"><div class="no">PROPOSAL 01</div><h3>市内在住・在勤・在学の利用無料化</h3>
-        <p>失う歳入は<b>年約60万円</b>（収入の2割弱）。得るのは日常の賑わいと設置趣旨（初心者・市民の裾野）の回復。<b>市外1.5倍は維持</b>——場をつくるのは地元、場に対価を払うのは遠征、という役割分担の料金設計。既存の減免制度の運用拡充から着手できる。</p></div>
-      <div class="prop p2"><div class="no">PROPOSAL 02</div><h3>夏期の早朝開放（猛暑日対応）</h3>
-        <p>35℃以上で利用は3〜4割減るが、34℃までは減らない——閉め出しているのは暑さと開館時間。夕方は21時まで照明で開けており、涼しい<b>早朝だけを切り捨てている</b>。無人ゲートのため追加人件費はほぼゼロ。熱中症対策としての公衆衛生施策でもある。</p></div>
-      <div class="prop p3"><div class="no">PROPOSAL 03</div><h3>月例ボウルイベント（協会共催・観客動線つき）</h3>
-        <p>毎回50〜81人を集める「パークで滑ろう」の実績を、<b>月例化・ボウル特化・観客席つき</b>に制度化。ボウルは観る競技——大会・映像・SNSで「太田に行けば誰かいる」を遠征圏に発信し、目的地化する。</p></div>
-      <div class="prop p4"><div class="no">PROPOSAL 04</div><h3>スポンサー財源の本格化</h3>
-        <p>市はアリーナで命名権の実績を持つ（報道等では年1,000万円規模・正式額は開示手続中）。スケートパーク単体でも<b>年100万〜1,300万円</b>の契約実例（新潟・笠間・堺）。笠間では命名権企業ムラサキスポーツが指定管理も受託——<b>同社太田店は本施設で毎月スクール実施中</b>。最有力の対話先は、すでに現場にいる。</p></div>
+      <div class="prop p1"><div class="no">PROPOSAL 01</div><h3>市民無料期間の延長（市内在住・在勤・在学／登録制）</h3><p>2024年に半年間実証済みの無料期間を、<b>登録制のまま</b>再開・延長する（まず1年の期限付き・結果のデータで恒久化を判定）。<b>無料化であって、無管理化ではない</b>——登録・身分証確認・電子ゲート・入退場記録は全て維持し、フィルターは料金でなく登録で掛ける。市外の料金は維持。収入への影響は限定的で、正確な影響額は市の開示数値でそのまま検証できる。</p></div>
+      <div class="prop p2"><div class="no">PROPOSAL 02</div><h3>夏期の早朝開放（猛暑日対応）</h3><p>本施設は現に、照明の下で夜まで無人営業している。同じ体制を涼しい早朝に広げるだけで、追加の人件費はほぼ生じない。危険な日中から安全な時間帯へ誘導する<b>熱中症対策</b>でもある。「夏期限定・試行」から始められる。</p></div>
+      <div class="prop p3"><div class="no">PROPOSAL 03</div><h3>月例ボウルイベント（協会共催）</h3><p>協会主催の減免セッションには、平常日を大きく上回る参加が続いている（市のイベント実績記録）。この実績を<b>月例化・ボウル特化</b>し、観る人の動線も設けて「太田に行けば誰かいる」を育てる。</p></div>
+      <div class="prop p4"><div class="no">PROPOSAL 04</div><h3>スポンサー財源の本格化</h3><p>市はアリーナでネーミングライツの実績を持ち、スケートパーク単体でも他自治体に有償契約の実例がある。地元で毎月スクールを行う事業者の存在など、対話先は既に現場にある。正式な金額水準は開示手続で確認中。</p></div>
     </div>
-    <div class="steps"><b>実現の順序（低リスクの運用変更から）：</b>（1）夏期の早朝時間拡大 →（2）市内減免の拡充 →（3）月例イベントの共催枠 →（4）命名権・協賛の公募。（1）〜（3）は条例改正を要さず現行制度の運用で着手可能。（4）の財源が立てば（1）（2）の歳入影響は吸収できる。</div>
-  </section>
+    <div class="steps"><b>実現の順序：</b>（1）夏期の早朝時間拡大 →（2）市民無料期間の延長（登録制・期限付き）→（3）月例イベントの共催枠 →（4）スポンサー公募。（1）〜（3）は条例改正を要さず、現行制度の運用で着手できる。効果は既存システムの記録（0人日の増減など）で毎月検証し、数字で次の段階を判定する。</div>
 
-  <!-- 10 feedback -->
+  </section>
   <div class="fb">
     <h3>ご意見をお寄せください</h3>
-    <p>このページは、太田市の公文書開示データを一市民が分析し、より良いパーク運営を提案するものです。利用者・保護者・遠征で訪れる方・近隣の方——立場を問わず感想やご意見を歓迎します。いただいた声は件数・内訳の形で、市・関係団体への提案に活かします。</p>
-    <p class="fb-links">
-<span class="fb-sns">メール: <span class="mail">9yoshida8@gmail.com</span></span>
-    </p>
+    <p>このページは、太田市の公文書開示データを一市民が分析し、より良いパーク運営を提案するものです。立場を問わず感想やご意見を歓迎します。メール: <span class="mail">9yoshida8@gmail.com</span></p>
   </div>
 
-  <!-- closing -->
   <div class="close">
     <p class="disp">無料の頃、地元の子が来ない日は年に2日しかなかった。<br>
-    いまは82日ある。<em>守っている歳入は、市内分の年60万円。</em><br>
-    設置趣旨——「ちょっとやってみようかな、という人にも」——を数字に戻す最短の一手が、<em>市内無料</em>です。<br>そしてボウルという独占資産を活かせる窓は、いま開いている。</p>
+    いまは82日。誰も来ない日も、46日ある。<br>
+    設置趣旨——「ちょっとやってみようかな、という人にも」——を取り戻す最短の一手が、<em>市民無料期間の延長</em>です。</p>
   </div>
 
   <p class="src">
-    出典：太田市 公文書開示（2026年6月22日付請求・第1部）「スケートパーク利用実績集計表」「スケートパーク日次集計表（無料期間・令和6〜8年度）」および歳入資料。気象データ：Open-Meteo（太田市、日最高気温・降水量）。逆算収入は開示の料金表（平日 市内一般600/高校生以下300・市外900/450、休日は各1.2倍）×日次人数により算出し、開示歳入（令和7年度 ¥3,278,040）と整合。無料期には開業初年の注目度が含まれるため、水準の完全な回復を保証するものではない。市内0人日には休場日を含む。イベント参加人数は開示「イベント実績一覧表（令和6〜8年度）」による。みどモスストリートパーク（みどり市）の概要・開業日はみどり市公式サイト及び上毛新聞・東京新聞の報道による。アリーナ（OPEN HOUSE ARENA OTA）のネーミングライツ年額1,000万円は報道等の外部情報であり、市の開示による確認は第2部請求で係属中。地元と市外の連動は相関であり因果を断定しない。
+    出典：太田市 公文書開示（2026年6月・第1回）スケートパーク日次集計表ほか。掲載している数値と算出方法は、開示文書そのもので検証できます。市内0人の日には休場日を含みます。開示請求の状況：第1回（利用実績）開示済／第2回（経費・契約等）手続中／第3回（居住地別）提出予定。誤りのご指摘：9yoshida8@gmail.com——確認のうえ、即訂正します。
   </p>
 
 </main>
-
 <script>
 const FREE=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const PAID=[1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0];
 function fill(id, arr){
-  const g=document.getElementById(id);
+  const g=document.getElementById(id); if(!g) return;
   const frag=document.createDocumentFragment();
-  arr.forEach(z=>{
-    const c=document.createElement("div");
-    c.className="cell"+(z?" z":"");
-    frag.appendChild(c);
-  });
+  arr.forEach(z=>{const c=document.createElement("div");c.className="cell"+(z?" z":"");frag.appendChild(c);});
   g.appendChild(frag);
 }
 fill("calFree", FREE);
